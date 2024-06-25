@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <style>
+        body {
+            background-color: #FCEDEA; /* Pastel pink background color */
+            color: #333; /* Dark text color */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            animation: slideInFromTop 1s ease-out, fadeIn 2s ease-out;
+        }
+        @keyframes slideInFromTop {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .highlight {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #4A4A4A; /* Dark grey */
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #2868E6; /* Dark blue button color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 50px;
+            margin-right: 10px; /* Add margin between buttons */
+            animation: slideInFromBottom 1s ease-out;
+        }
+        .button:hover {
+            background-color: #1C4F91; /* Darker blue on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+        @keyframes slideInFromBottom {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .message {
+            font-size: 2em;
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to <span class="highlight">Launchpad</span></h1>
+    <a href="#" class="button" onclick="showMessage('CS')">CS Batch</a>
+    <a href="#" class="button" onclick="showMessage('Non-CS')">Non-CS Batch</a>
+    <div id="message" class="message"></div>
+
+    <script>
+        function showMessage(batch) {
+            var messageDiv = document.getElementById('message');
+            if (batch === 'CS') {
+                messageDiv.textContent = 'Welcome to CS Batch of Launchpad Program';
+            } else {
+                messageDiv.textContent = 'Welcome to Non-CS Batch of Launchpad Program';
+            }
+            messageDiv.style.opacity = 1; // Ensure the message is visible
+        }
+    </script>
+</body>
+</html>
